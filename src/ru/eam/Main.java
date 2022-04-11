@@ -66,17 +66,12 @@ public class Main {
                 .filter(person -> Objects.equals(person.getEducation(), Education.HIGHER))
                 .filter(person -> {
                     if (Objects.equals(person.getSex(), Sex.WOMAN)) {
-                        if ((person.getAge() > 17)
-                                && (person.getAge() < 60)) {
-                            return true;
-                        }
+                        return (person.getAge() > 17)
+                                && (person.getAge() < 60);
                     } else {
-                        if ((person.getAge() > 17)
-                                && (person.getAge() < 65)) {
-                            return true;
-                        }
+                        return (person.getAge() > 17)
+                                && (person.getAge() < 65);
                     }
-                    return false;
                 })
                 .sorted(Comparator.comparing(Person::getFamily))
                 .collect(Collectors.toCollection(ArrayList::new));
